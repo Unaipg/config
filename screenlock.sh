@@ -9,7 +9,8 @@ then
     PX=0
     PY=0
     # lockscreen image info
-    R=$(file ~/.config/screen-lock.png | grep -o '[0-9]* x [0-9]*')
+    # R=$(file ~/.config/screen-lock.png | grep -o '[0-9]* x [0-9]*')
+    R=$(file ~/Downloads/grapo.png | grep -o '[0-9]* x [0-9]*')
     RX=$(echo $R | cut -d 'x' -f 1)
     RY=$(echo $R | cut -d 'x' -f 2)
  
@@ -25,7 +26,7 @@ then
         PX=$(($SROX + $SRX/2 - $RX/2))
         PY=$(($SROY + $SRY/2 - $RY/2))
  
-        convert /tmp/screen.png $HOME/.config/screen-lock.png -geometry +$PX+$PY -composite -matte  /tmp/screen.png
+        convert /tmp/screen.png ~/Downloads/grapo.png -geometry +$PX+$PY -composite -matte  /tmp/screen.png
     done
 fi
 # dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop

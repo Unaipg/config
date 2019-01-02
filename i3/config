@@ -9,13 +9,14 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+for_window [class="^.*"] border pixel 0
 focus_follows_mouse no
 set $mod Mod4
 # set $mod Mod1
 
 # Colors
 
-  set $bg-color             #2f343f
+  set $bg-color             #2f343fff
   set $inactive-bg-color    #2f343f
   set $text-color           #f3f4f5
   set $inactive-text-color  #676E7D
@@ -115,16 +116,27 @@ bindsym $mod+a focus parent
 
 # Set workspaces
 
-set $workspace1 "1: "
-set $workspace2 "2: "
-set $workspace3 "3: "
-set $workspace4 "4: "
-set $workspace5 "5: "
-set $workspace6 "6: "
-set $workspace7 "7: "
-set $workspace8 "8: "
-set $workspace9 "9: "
-set $workspace10 "10: "
+set $workspace1 "1"
+set $workspace2 "2"
+set $workspace3 "3"
+set $workspace4 "4"
+set $workspace5 "5"
+set $workspace6 "6"
+set $workspace7 "7"
+set $workspace8 "8"
+set $workspace9 "9"
+set $workspace10 "10"
+
+# set $workspace1 "1: "
+# set $workspace2 "2: "
+# set $workspace3 "3: "
+# set $workspace4 "4: "
+# set $workspace5 "5: "
+# set $workspace6 "6: "
+# set $workspace7 "7: "
+# set $workspace8 "8: "
+# set $workspace9 "9: "
+# set $workspace10 "10: "
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -187,19 +199,20 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        position top
-        status_command i3blocks -c ~/.config/i3/i3blocks.conf
-        tray_output primary
-
-            colors {
-      			separator #757575
-      			background $bg-color
-      			focused_workspace $bg-color $bg-color $text-color
-      			inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-      			urgent_workspace $urgent-bg-color $urgent-bg-color $text-color
-    }
-}
+# bar {
+#         position top
+#         status_command i3blocks -c ~/.config/i3/i3blocks.conf
+#         tray_output primary
+#         i3bar_command i3bar -t
+# 
+#             colors {
+#       			separator #757575
+#       			background $bg-color 
+#       			focused_workspace $bg-color $bg-color $text-color
+#       			inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+#       			urgent_workspace $urgent-bg-color $urgent-bg-color $text-color
+#     }
+# }
 
 # Volume fix
 
@@ -223,6 +236,7 @@ bindsym Control+Print exec gnome-screenshot -i
 exec_always xrandr --auto
 exec_always xrandr --output DP-1 --left-of eDP-1
 exec_always feh --bg-scale  /home/upastor/Descargas/victory.jpg
+exec_always $HOME/.config/polybar/launch_polybar.sh &
 
 exec_always compton -f
 
@@ -231,3 +245,16 @@ assign [class="Google-chrome"] $workspace2
 assign [class="firefox"] $workspace3
 assign [class="Gnome-terminal"] $workspace4
 assign [class="telegram-desktop"] $workspace10
+
+hide_edge_borders on
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
